@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuizPRO - Leaderboard</title>
+  <link rel="stylesheet" href="assets/css/leaderboard.css" />
+</head>
+<body>
+  <div class="leaderboard-container">
+    <h1>Top 25 Players</h1>
+    <ol id="topList"></ol>
+    <div id="yourRank">Coming Soon...</div>
+    <button onclick="goHome()">Go Home</button>
+  </div>
+  
+  <!-- Main Leaderboard Logic -->
+  <script src="assets/js/leaderboard.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      window.location.href = "index.html";
+    };
+  });
+</script>
+</body>
+</html>

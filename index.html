@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuizPRO - Home</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to QuizPRO</h1>
+    <h3 id="usernameDisplay"></h3>
+
+    <button onclick="startQuiz()">Start Quiz</button>
+    <button onclick="goToSettings()">Settings</button>
+    <button onclick="goToLeaderboard()">Leaderboard</button>
+    <button onclick="exitGame()">Exit Game</button>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      const exit = confirm("Do you want to exit the game?");
+      if (exit) {
+        window.close(); // May not work on all mobile browsers
+      } else {
+        history.pushState(null, null, location.href);
+      }
+    };
+  });
+</script>
+</body>
+</html>

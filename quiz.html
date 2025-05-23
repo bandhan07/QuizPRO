@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz - QuizPRO</title>
+  <link rel="stylesheet" href="assets/css/quiz.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="top-bar">
+      <span id="question-number">Question 1/10</span>
+      <span id="timer">Time: 15s</span>
+      <span id="livesDisplay">Lives: 3/3</span>
+    </div>
+
+    <h2 id="question">Loading question...</h2>
+
+    <div id="options" class="options"></div>
+
+    <button id="nextBtn" onclick="loadNextQuestion()" disabled>Next</button>
+  </div>
+
+  <!-- Sound effects -->
+  <audio id="correctSound" src="assets/sounds/correctSound.mp3"></audio>
+  <audio id="wrongSound" src="assets/sounds/wrongSound.mp3"></audio>
+
+  <script src="assets/js/quiz.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    history.pushState(null, null, location.href); // prevent default back
+    window.onpopstate = function () {
+      window.location.href = "levels.html";
+    };
+  });
+</script>
+</body>
+</html>
